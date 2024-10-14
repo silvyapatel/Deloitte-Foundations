@@ -1,2 +1,2 @@
-# Silvy Patel Deloitte-Foundations
+# Silvya Patel Deloitte-Foundations
 This is my first try
