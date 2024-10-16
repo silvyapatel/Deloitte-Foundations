@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact form</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Contact Info</legend>
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" placeholder="Enter Name" required>
+            <br>
+            <label for="Email">e-mail:</label>
+            <input type="email" id="Email" name="Email" placeholder="abc@example.com" required>
+            <br>
+            <label for="phno">Mobile:</label>
+            <input type="tel" id="phno" name="phno" pattern="[0-9]{10}" placeholder="Enter Mobile" required>
+            <br>
+            <label for="msg">Message:</label>
+            <textarea id="msg" name="msg" required></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+</html>
