@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form id="form1">
+        <label for="fname">First Name:</label>
+        <input id="fname" name="fname" type="text"/>
+        <input type="button" value="submit" onclick="dispName()"/>
+        <input type="button" value="click me" onclick="getLastName()"/>
+    </form>
+    <script>
+        function dispName()
+        {
+            const name=document.getElementById("fname").value;
+            console.log(name);
+        }
+        function getLastName(){
+            const lastName=prompt("Enter last name");
+            console.log(lastName);
+        }
+    </script>
+</body>
+</html>
