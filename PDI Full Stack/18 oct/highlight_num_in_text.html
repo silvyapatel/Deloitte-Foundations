@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight_num</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Enter text</legend>
+        <textarea onchange="highlightText()" id="inp"> </textarea>
+    </fieldset>
+    <fieldset>
+        <legend>result</legend>
+        <p id="outp"></p>
+    </fieldset>
+
+    <script>
+        function highlightText()
+        {
+            let text=document.querySelector("#inp").value;
+            let res=document.querySelector("#outp");
+            let num=text.match(/\d+.\d+/g);
+            if(num)
+                res.innerText+=num;
+            else    
+                res.innerText+="NO numbers found";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide elements</title>
+    <style>
+        .disp{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hide an element</h1>
+    <p id="ele">Element to hide</p>
+    <button onclick="hideEle()">Click ME!</button>
+    <h1>Change Content</h1>
+    <p id="ele2">Paragraph 1</p>
+    <button onclick="changeEle()">Click ME!</button>
+
+    <script>
+        function hideEle()
+        {
+            let ele=document.querySelector("#ele");
+            //Way 1
+            //ele.hidden=(ele.hidden)?false:true; 
+            ele.classList.toggle("disp"); //Way 2
+        }
+        function changeEle()
+        {
+            let ele2=document.querySelector("#ele2");
+            ele2.innerText="Another Paragraph"
+            //or use ele2.textContent
+        }
+    </script>
+</body>
+</html>
