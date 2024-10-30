@@ -1,30 +1,35 @@
 package com.cloudthat.libraryManagementSystem;
+import com.cloudthat.libraryManagementSystem.Exceptions.BookAlreadyExistsException;
+import com.cloudthat.libraryManagementSystem.Exceptions.BookNotFoundException;
+
 import java.util.Map;
 import java.util.HashMap;
-public class Library {
+public class Library{
     private Map<String,Book> books;
 //    private set<String> sbn
     public Library(){
         books=new HashMap<>();
     }
-    public void addBook(Book book){
+    public void addBook(Book book) throws BookAlreadyExistsException{
         if(books.containsKey(book.getIsbn()))
         {
-            System.out.println("Book already exists");
+//            System.out.println("Book already exists");
+            throw new BookAlreadyExistsException(book.getIsbn());
         }
         else{
             books.put(book.getIsbn(),book);
             System.out.println("book added");
         }
     }
-    public void removeBook(String isbn){
+    public void removeBook(String isbn) throws BookNotFoundException {
         if(books.containsKey(isbn))
         {
             Book remBook=books.remove(isbn);
             System.out.println("book removed:"+remBook);
         }
         else{
-            System.out.println("Book not found");
+//            System.out.println("Book not found");
+            throw new BookNotFoundException(isbn);
         }
     }
     public void dispBooks(){

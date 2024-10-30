@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--        defualt scope is singleton meaning only one object of bean exists-->
+<!--        multiple objects can be created but upon changing one all will be affected-->
+        <bean id="book" class="org.example.Book" scope="prototype">
+<!--            <constructor-arg index="0" value="1234567" type="String" />-->
+<!--            <constructor-arg index="1" value="Introduction to Spring" type="String" />-->
+<!--            <constructor-arg index="2" value="James Gosling" type="String" />-->
+
+            <property name="author">
+                <bean id="author" class="org.example.Author">
+                    <property name="name" value="Silvya"/>
+                    <property name="numOfPub" value="10"/>
+                </bean>
+            </property>
+            <property name="isbn" value="1234567"/>
+            <property name="title" value="Introduction to Spring"/>
+        </bean>
+</beans>
+
