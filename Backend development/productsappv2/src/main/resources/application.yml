@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: productsapp
+  datasource:
+    url: jdbc:mysql://localhost:3306/productsappv2
+    username: root
+    password: 11T-parad1s3
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: update
+  springdoc:
+    api-docs:
+      path: /api-docs
+    swagger-ui:
+      try-it-out-enabled: false
+      default-model-expand-depth: -1
