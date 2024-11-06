@@ -1,50 +1,23 @@
-package com.cloudthat.productsapp.entity;
+package com.cloudthat.productsapp.model;
 
-import jakarta.annotation.Nonnull;
-import jakarta.persistence.*;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import org.hibernate.annotations.CreationTimestamp;
-
+import com.cloudthat.productsapp.entity.Category;
+import com.cloudthat.productsapp.entity.ProductProperties;
+import com.cloudthat.productsapp.entity.Shipper;
+import com.cloudthat.productsapp.entity.Warranty;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Entity
-//@Table(name = "ecommerce_products")
-public class Product {
+public class ProductModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    //    @Column(name = "ecomm_product_name")
-    @NotBlank
     private String productName;
     private String productDescription;
-    @Min(value = 1)
     private double price;
     private boolean isEnabled;
-    @Enumerated(EnumType.ORDINAL)
     private Category category;
-
-    @CreationTimestamp
-    @Column(updatable = false)
     private LocalDateTime createdAt;
-
-    @Embedded
-    @Valid
     private ProductProperties productProperties;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "warranty_id")
     private Warranty warranty;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "product_shipper",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "shipper_id")
-    )
     private Set<Shipper> shippers;
 
     public boolean isEnabled() {
@@ -62,10 +35,6 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
-
-    public Product() {
-    }
-
 
     public Long getId() {
         return id;
@@ -131,7 +100,8 @@ public class Product {
         this.shippers = shippers;
     }
 
-    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category, LocalDateTime createdAt, ProductProperties productProperties, Warranty warranty, Set<Shipper> shippers) {
+    public ProductModel(Long id, String productName, String productDescription, double price, boolean isEnabled, Category category, LocalDateTime createdAt, ProductProperties productProperties, Warranty warranty, Set<Shipper> shippers) {
+        this.id = id;
         this.productName = productName;
         this.productDescription = productDescription;
         this.price = price;
@@ -143,5 +113,6 @@ public class Product {
         this.shippers = shippers;
     }
 
-
+    public ProductModel() {
+    }
 }

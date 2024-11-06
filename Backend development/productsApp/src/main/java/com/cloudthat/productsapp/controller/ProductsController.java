@@ -35,4 +35,9 @@ public class ProductsController {
     public String deleteProduct(@PathVariable("productId") Long productId) {
         return "Product Deleted Successfully";
     }
+
+    @GetMapping("/products/names/{productName}")
+    public Product getProductByName(@PathVariable("productName") String productName){
+        return productService.getProductByName(productName);
+    }
 }
